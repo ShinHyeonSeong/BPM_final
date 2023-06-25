@@ -399,7 +399,8 @@ public class ProjectDetailController {
     /* - - - - 삭제 메서드 - - - - */
     @RequestMapping("/project/delete/{id}")
     public String deleteProject(@PathVariable("id")Long projectId) {
-        projectSerivce.deleteProject(projectId);
+        ProjectDto projectDto = projectSerivce.selectProject(projectId);
+        projectDetailSerivce.deleteProjectEntity(projectDto);
         return "redirect:/project/projectManagerList";
     }
     @RequestMapping("/project/goal/head/delete/{id}")
