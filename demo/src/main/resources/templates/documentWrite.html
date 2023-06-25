@@ -58,14 +58,14 @@
                     </div>
                 </div>
             </div>
-            <input type="file" id="imageInput" style="display:none;" accept="image/*">
-            <input type="file" id="videoInput" style="display:none;" accept="video/*">
+            <input type="file" id="imageInput" style="display:none;" accept="image/">
+            <input type="file" id="videoInput" style="display:none;" accept="video/">
         </div>
     </div>
     <div class="footer">
         <!-- 요건 리스트로 돌아가기 -->
-        <a href="/document/list"><button class="footer-btn">나가기</button></a>
-        <a th:href="@{/document/log(id=${document.documentId})}"><button class="footer-btn">기록</button></a>
+        <a th:href="${back}"><button class="footer-btn">나가기</button></a>
+        <a th:href="@{/document/history(id=${document.documentId})}"><button class="footer-btn">기록</button></a>
         <!-- 요건 리스트로 넘김 -->
         <button class="footer-btn" onclick="ajaxPost()">저장</button>
     </div>
