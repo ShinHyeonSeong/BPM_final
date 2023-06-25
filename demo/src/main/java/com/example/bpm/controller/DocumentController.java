@@ -64,7 +64,7 @@ public class DocumentController {
     // 문서 새로 만들기 Document Add [Post]
     /// 새로운 문서를 만드는 작업
     @PostMapping("document/addDocument")
-    public String postAddingDocument( long workId , HttpSession session){
+    public String postAddingDocument(long workId , HttpSession session){
 
         UserDto sessionUser = (UserDto) session.getAttribute("userInfo");
 
@@ -75,6 +75,14 @@ public class DocumentController {
         documentService.workDocumentAdd(workId, documentId);
 
         return "redirect:/document/write?id=" + documentId;
+    }
+
+    @PostMapping("document/delete")
+    public String deleteDocument(String id){
+
+        documentService.deleteDocument(id);
+
+        return "redirect:"+session.getAttribute("back");
     }
 
     // 문서 작성 Document write
