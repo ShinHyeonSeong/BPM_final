@@ -72,7 +72,7 @@ public class ProjectDetailController {
         ProjectDto sessionProject = getSessionProject();
         UserDto userDto = getSessionUser();
         List<HeadDto> headDtoList = projectDetailSerivce.selectAllHead(sessionProject);
-        List<WorkDto> userWorkDtoList = projectDetailSerivce.selectAllWorkForUser(userDto);
+        List<WorkDto> userWorkDtoList = projectDetailSerivce.selectAllWorkForProject(sessionProject);
         model.addAttribute("headDtoList", headDtoList);
         model.addAttribute("userWorkDtoList", userWorkDtoList);
         return "redirect:/project/" + sessionProject.getProjectId();
