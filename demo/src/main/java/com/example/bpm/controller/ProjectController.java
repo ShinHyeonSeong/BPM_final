@@ -179,7 +179,7 @@ public class ProjectController {
         model.addAttribute("headDtoList", headDtoList);
 
         if (getSessionAuth() != 2) {
-            List<WorkDto> userWorkDtoList = projectDetailSerivce.selectAllWorkForUser(userDto);
+            List<WorkDto> userWorkDtoList = projectDetailSerivce.selectAllWorkForProject(presentDto);
 
             model.addAttribute("userWorkDtoList", userWorkDtoList);
             return "projectMain";
